@@ -46,6 +46,7 @@ data/$(area)/pbf: data/europe.pbf
 	   --geonames-file=$(cities)              \
            --description="OSM $(area) $(style)"   \
 	   --polygon-file=polygons/$(area).poly   \
+	   --precomp-sea=$(sea)                   \
            --output=pbf                           \
            --output-dir=$(tmp)                    \
               $<
@@ -91,3 +92,5 @@ countries += switzerland
 all: $(countries)
 $(countries):
 	make area=$@ build
+
+.PHONY: all $(countries)

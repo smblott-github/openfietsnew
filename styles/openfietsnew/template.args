@@ -1,0 +1,22 @@
+product-id: 1
+draw-priority: 20
+series-name: OpenFietsNew
+family-name: OpenFietsNew
+description: Tweaked version of OpenFietsmap.
+copyright-message: Map data © openstreetmap.org, Map layout © openfietsmap.nl
+style-file: styles/openfietsnew
+generate-sea: land-tag=natural=background
+location-autofill: is_in,nearest
+housenumbers
+x-split-name-index
+show-profiles: 1
+merge-lines
+add-pois-to-areas
+add-pois-to-lines
+link-pois-to-ways
+min-size-polygon: 4
+preserve-element-order
+keep-going
+net
+route
+index

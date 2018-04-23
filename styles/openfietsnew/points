@@ -81,12 +81,12 @@ tourism=picnic_site | leisure=picnic_table { add mkgmap:housenumber='fireplace:$
 amenity=bench [0x5001 resolution 24]
 #tourism=picnic_site [0x4a00 resolution 24]
 tourism=resort [0x2b04 resolution 24]
-tourism=theme_park { name '${name} ${description}' | '${name}' | '${description}' } [0x2c01 resolution 22]
+# tourism=theme_park { name '${name} ${description}' | '${name}' | '${description}' } [0x2c01 resolution 22]
 tourism=wine_cellar [0x2c0a resolution 24]
 tourism=zoo [0x2c07 resolution 24]
 
-aeroway=airport | aeroway=aerodrome [0x2f04 resolution 22]
-aeroway=terminal & mkgmap:area2poi!=true [0x2f04 resolution 22]
+aeroway=airport | aeroway=aerodrome [0x2f04 resolution 23]
+aeroway=terminal & mkgmap:area2poi!=true [0x2f04 resolution 23]
 
 amenity=atm  { name '${name}' | '${operator}' } [0x2f06 resolution 24 continue]
 amenity="bank;atm" { name '${name}' | '${operator}' } [0x2f06 resolution 24 continue]
@@ -113,8 +113,8 @@ amenity=conference_centre [0x2c09 resolution 24]
 amenity=convention_center [0x2c09 resolution 24]
 amenity=community_centre [0x3005 resolution 24]
 amenity=courthouse [0x3004 resolution 24]
-amenity=customs [0x3006 resolution 22]
-healthcare=hospital | amenity=hospital | amenity=clinic [0x3002 resolution 22]
+amenity=customs [0x3006 resolution 23]
+healthcare=hospital | amenity=hospital | amenity=clinic [0x3002 resolution 24]
 healthcare=* | amenity=dentist | amenity=doctors [0x3002 resolution 24]
 amenity=drinking_water [0x5000 default_name 'water' resolution 22]
 amenity=embassy & country=* { name '${country} ${name|def:}' } [0x3003 resolution 24]
@@ -188,7 +188,7 @@ incline="0%" {delete incline}
 		name  '${name} (${incline|subst:-=> })' |  '${name}' | '${incline|subst:-=> }' ;
 		add mkgmap:housenumber='${note|def:}' ;
 		add mkgmap:street='${source|def:}' ;
-	} [0x2f13 resolution 22]
+	} [0x2f13 resolution 24]
 	
 highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|highway=track) & incline ~ '.*%' & mkgmap:line2poitype=mid  { name '${incline|subst:-=> }' }   [0x2f13 resolution 24]
 
@@ -234,14 +234,14 @@ leisure=water_park [0x2d09 resolution 24]
 
 landuse=quarry | man_made ~ '.*(mine|adit|spoil).*'	[0x640c resolution 23 continue]
 
-mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 22]
-mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 22]
-mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 22]
+mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 23]
+mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 23]
+mountain_pass=yes & ele!=* {name '${name|def:}' } [0x6401 resolution 23]
 
 natural=beach & name=* [0x1e01 resolution 24]
 natural=cave_entrance [0x6601 resolution 24]
 natural=cliff & name=* [0x6607 resolution 24]
-natural=glacier [0x650a resolution 22]
+natural=glacier [0x650a resolution 23]
 
 natural=peak & altitude=number    {name '${name|def:} (${ele|def:}m)'} [0x6616 resolution 21]
 natural=peak & altitude=no_number {name '${name|def:} (${ele|def:})'} [0x6616 resolution 21]
@@ -253,13 +253,13 @@ natural=stream [0x6512 resolution 24]
 natural=tree & name=* [0x6618 resolution 24]
 natural=volcano [0x2c0c resolution 21]
 natural=sea & name=* [0x6603 resolution 18] 
-natural=bay & name=* [0x6603 resolution 22]
+natural=bay & name=* [0x6603 resolution 23]
 natural=wetland & name=* [0x1e03 resolution 24]
 
 (landuse=forest | natural=wood | leisure=park ) &  name=* [0x1e03 resolution 24]
 
 
-railway=halt [0x1102 resolution 22]
+railway=halt [0x1102 resolution 23]
 railway=station [0x1102 resolution 20-23 continue]
 railway=station [0x2f17 resolution 24]
 railway=tram_stop [0x2f08 default_name 'tram' resolution 24]
@@ -303,7 +303,7 @@ craft=* { name '${name} (${craft})' } [0x2e03 resolution 24]
 
 #sport=9pin [0x2d07 resolution 24]
 #sport=10pin [0x2d07 resolution 24]
-sport=airport [0x2d0b resolution 22]
+sport=airport [0x2d0b resolution 23]
 sport=cycling { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a resolution 24]
 sport=multi { name '${name} ${description}' | '${name}' | '${description}' } [0x2d0a resolution 24]
 sport=skating [0x2d08 resolution 24]
@@ -338,8 +338,8 @@ barrier=cattle_grid [0x281a resolution 23]
 					 
 power_source=wind | man_made=power_wind | generator:source=wind | man_made=windpump [0x2819 resolution 24]
 
-toponym=water [0x6603 resolution 22] 
-toponym=* [0x1e03 resolution 22]
+toponym=water [0x6603 resolution 23] 
+toponym=* [0x1e03 resolution 23]
 
 # pois from lines
 bicycle:conditional=* & mkgmap:line2poitype=start { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]

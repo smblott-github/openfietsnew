@@ -12,6 +12,7 @@ cities = /data/osm/cities15000.zip
 
 tmp = tmp
 data = data
+maps = maps
 
 style=openfietsnew
 id = $(shell cat polygons/$(area).poly.fid )
@@ -23,6 +24,7 @@ build: polygons/$(area).poly.fid # Set this to a (unique) two-digit number
 build: data/europe.pbf
 build: data/$(area)/pbf
 build: data/$(area)/img
+build: $(maps)/$(area).img
 
 .PHONY: area
 area:
@@ -72,12 +74,17 @@ data/$(area)/img: data/$(area)/pbf
 	   --area-name=$(area)                          \
 	   --country-name=$(area)                       \
 	   --gmapsupp                                   \
-	   --max-jobs                                   \
+	   --max-jobs=4                                 \
 	   --tdbfile                                    \
 	   --style-file=styles/$(style)                  \
 	   --read-config=data/$(area)/pbf/template.args \
 	   $(tmp)/$(style).typ
 	mv -v $(tmp) $@
+
+$(maps)/$(area).img: $(data)/$(area)/img
+	mkdir -vp $(maps)
+	rm -fv $@
+	ln -v $</gmapsupp.img $@
 
 countries  =
 countries += austria

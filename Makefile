@@ -1,7 +1,11 @@
 
+# From Geofabrik.
 europe = /data/osm/europe-latest.osm.pbf
-srtm = /data/osm/srtm-alps-uk-ie.pbf
 
+# From: http://develop.freizeitkarte-osm.de/ele_20_100_500/.
+srtm = /data/osm/Hoehendaten_Freizeitkarte_EUROPE.osm.pbf
+
+# Links for the up-to-date versions of these are here: http://www.openfietsmap.nl/procedure.
 sea = /data/osm/sea.zip
 bounds = /data/osm/bounds.zip
 cities = /data/osm/cities15000.zip
@@ -23,20 +27,21 @@ build: data/$(area)/pbf
 area:
 	test -n "$(area)" # "area" must be defined.
 
-# Merge the available OSM and SRTM sources.
+# Merge the available OSM and contour sources.
 data/europe.pbf: $(europe) $(srtm)
 	rm -fr $(tmp)
 	mkdir -p $(tmp) $(data)
 	rm -f $@
-	osmosis --read-pbf $(europe) --read-pbf $(srtm) --merge --write-pbf $(tmp)/europe.pbf
+	osmosis --read-pbf file=$(europe) --read-pbf file=$(srtm) --merge --write-pbf file=$(tmp)/europe.pbf omitmetadata=true
 	mv -v $(tmp)/europe.pbf $@
 
+# Split the data into tiles for $(area).
 data/$(area)/pbf: data/europe.pbf
 	rm -fr $(tmp) $@
 	mkdir -p $(tmp) $(data)/$(area)
 	nice splitter \
-	   --max-nodes=850000                     \
-	   --max-nodes=1600000                    \
+	   --max-nodes=1200000                    \
+	   --max-areas=1536                       \
            --mapid=$(fid)0001                     \
 	   --geonames-file=$(cities)              \
            --description="OSM $(area) $(style)"   \
@@ -49,6 +54,7 @@ data/$(area)/pbf: data/europe.pbf
 style/$(style)/template.args:
 	touch style/$(style)/template.args
 
+# Compile the map tiles.
 data/$(area)/img: style/$(style)/template.args
 data/$(area)/img: data/$(area)/pbf
 	rm -fr $(tmp) $@
@@ -65,6 +71,7 @@ data/$(area)/img: data/$(area)/pbf
 	   --country-name=$(area)                       \
 	   --gmapsupp                                   \
 	   --max-jobs                                   \
+	   --tdbfile                                    \
 	   --style-file=style/$(style)                  \
 	   --read-config=data/$(area)/pbf/template.args \
 	   $(tmp)/$(style).typ

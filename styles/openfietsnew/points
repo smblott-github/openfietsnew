@@ -50,11 +50,11 @@ landuse=residential & name=* & source=AND [0x0900 resolution 23]
 (admin_level = 11 & boundary = administrative) [0x0900 resolution 23]
 landuse=industrial & name=* [0x0600 resolution 24]
 
-man_made=tower & tower:type!=communication  [0x6411 resolution 23 continue]
-man_made=windmill  [0x2c00 resolution 23]
+man_made=tower & tower:type!=communication  [0x6411 resolution 24 continue]
+man_made=windmill  [0x2c00 resolution 24]
 man_made=lighthouse [0x2812 resolution 23]
 
-leisure=bird_hide [0x2c06 resolution 23]
+leisure=bird_hide [0x2c06 resolution 24]
 
 tourism=alpine_hut [0x2b02 resolution 24]
 
@@ -63,7 +63,7 @@ tourism=artwork {name '${tourism}'} [0x2803 resolution 24]
 
 tourism=viewpoint & name=* [0x2c04 resolution 22 continue]
 tourism=viewpoint & altitude=number {name '${name|def:} (${ele|def:}m)'} [0x2814 resolution 23]
-tourism=viewpoint [0x2814 resolution 23]
+tourism=viewpoint [0x2814 resolution 24]
 
 tourism=aquarium [0x2c07 resolution 24]
 # tourism=camp_site & backcountry=* { name '${name} (backcountry)' | '${designation}(backcountry)' } [0x2b05 resolution 23]
@@ -184,12 +184,12 @@ highway=steps & tunnel=yes & (bicycle=yes|bicycle=dismount) & mkgmap:line2poityp
 
 incline="0%" {delete incline}
 (highway=incline | highway=incline_steep | incline=*) & mkgmap:line2poi!=true & incline!=no
-	{ 
+	{
 		name  '${name} (${incline|subst:-=> })' |  '${name}' | '${incline|subst:-=> }' ;
 		add mkgmap:housenumber='${note|def:}' ;
 		add mkgmap:street='${source|def:}' ;
 	} [0x2f13 resolution 24]
-	
+
 highway=* & !(highway=footway|highway=path|highway=steps|highway=pedestrian|highway=track) & incline ~ '.*%' & mkgmap:line2poitype=mid  { name '${incline|subst:-=> }' }   [0x2f13 resolution 24]
 
 #highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
@@ -202,24 +202,24 @@ highway=elevator [0x5002 resolution 24]
 
 historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=disused) {delete historic}
 historic=yes & name!=* {delete historic}
-historic=museum [0x2c02 default_name 'museum' resolution 23]
-historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 23]
-historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 23]
-historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 23]
-historic=castle [0x2c02 default_name 'Castle' resolution 23]
-historic=ruins | historic=fort [0x2c02 resolution 23]
-historic=* & historic ~ '.*(mine|adit).*'  [0x640c  resolution 23]
+historic=museum [0x2c02 default_name 'museum' resolution 24]
+historic=castle & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2c02 default_name 'Kasteel' resolution 24]
+historic=castle & mkgmap:country=DEU [0x2c02 default_name 'Burg' resolution 24]
+historic=castle & (mkgmap:country=FRA | mkgmap:admin_level4="Wallonie" | mkgmap:country=LUX) [0x2c02 default_name 'château' resolution 24]
+historic=castle [0x2c02 default_name 'Castle' resolution 24]
+historic=ruins | historic=fort [0x2c02 resolution 24]
+historic=* & historic ~ '.*(mine|adit).*'  [0x640c  resolution 24]
 historic=stone [0x6614 resolution 24]
-historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 23 continue]
+historic=* { name '${name}' | '${note}' | '${description}' | '${historic}' } [0x2c04  resolution 24 continue]
 historic=archaeological_site & name ~ '.*(unebed|Großsteingrab|Dolmen|Hünen).*' { add site_type=megalith }
-historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 23] 
-historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 23]
-(historic=monument | historic=building) & name=* [0x2802  resolution 23]
-historic=wayside_cross & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 23]
-historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 23]
-historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 23]
-historic=wayside_shrine & mkgmap:country=DEU [0x2803 default_name 'Bildstock' resolution 23]
-historic=* & historic!=yes { name '${historic}' } [0x2803  resolution 23]
+historic=archaeological_site & site_type=megalith { name '${historic}' } [0x2807 resolution 24]
+historic=archaeological_site & name=* { name '${historic}' } [0x2801 resolution 24]
+(historic=monument | historic=building) & name=* [0x2802  resolution 24]
+historic=wayside_cross & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Wegkruis' resolution 24]
+historic=wayside_cross & mkgmap:country=DEU [0x2803 default_name 'Kreuz' resolution 24]
+historic=wayside_shrine & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x2803 default_name 'Gebedsaltaar' resolution 24]
+historic=wayside_shrine & mkgmap:country=DEU [0x2803 default_name 'Bildstock' resolution 24]
+historic=* & historic!=yes { name '${historic}' } [0x2803  resolution 24]
 
 leisure=golf_course [0x2d05 resolution 24]
 leisure=ice_rink [0x2d08 resolution 24]
@@ -232,7 +232,7 @@ leisure=stadium [0x2d0a resolution 24]
 leisure=track [0x2d0a resolution 24]
 leisure=water_park [0x2d09 resolution 24]
 
-landuse=quarry | man_made ~ '.*(mine|adit|spoil).*'	[0x640c resolution 23 continue]
+landuse=quarry | man_made ~ '.*(mine|adit|spoil).*'	[0x640c resolution 24 continue]
 
 mountain_pass=yes & altitude=number     {name '${name|def:} (${ele|def:}m)'} [0x6401 resolution 23]
 mountain_pass=yes & altitude=no_number  {name '${name|def:} (${ele|def:})'} [0x6401 resolution 23]
@@ -252,14 +252,14 @@ natural=spring [0x6511 resolution 24]
 natural=stream [0x6512 resolution 24]
 natural=tree & name=* [0x6618 resolution 24]
 natural=volcano [0x2c0c resolution 21]
-natural=sea & name=* [0x6603 resolution 18] 
+natural=sea & name=* [0x6603 resolution 18]
 natural=bay & name=* [0x6603 resolution 23]
 natural=wetland & name=* [0x1e03 resolution 24]
 
 (landuse=forest | natural=wood | leisure=park ) &  name=* [0x1e03 resolution 24]
 
 
-railway=halt [0x1102 resolution 23]
+railway=halt [0x1102 resolution 24]
 railway=station [0x1102 resolution 20-23 continue]
 railway=station [0x2f17 resolution 24]
 railway=tram_stop [0x2f08 default_name 'tram' resolution 24]
@@ -320,26 +320,26 @@ sport=soccer { name '${name} ${description}' | '${name}' | '${description}' } [0
 tourism=attraction & attraction=animal [0x6405 resolution 24]
 tourism=attraction [0x2c01 resolution 24]
 
-# barriers
-barrier=full-height_turnstile {set barrier=turnstile}
-barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}'; set mkgmap:car='${bicycle|subst:private=>no}' }
-barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }    
-barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
-barrier=stile | barrier=turnstile  { add mkgmap:foot=yes; addaccess no; }
+## # barriers
+## barrier=full-height_turnstile {set barrier=turnstile}
+## barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}'; set mkgmap:car='${bicycle|subst:private=>no}' }
+## barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }
+## barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
+## barrier=stile | barrier=turnstile  { add mkgmap:foot=yes; addaccess no; }
+##
+## barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
+## (barrier=gate | barrier=entrance | barrier=turnstile | barrier=bump_gate) [0x3200 resolution 24]
+## barrier=* & barrier ~ '(lift_gate|toll_booth|border_control|swing_gate|log)' [0x3201 resolution 23]
+## barrier=stile [0x3202 resolution 23]
+## barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
+## (barrier=bollard | barrier=bus_trap | barrier=block) [0x1108 resolution 23]
+## barrier=cattle_grid [0x281a resolution 23]
 
-barrier=* & barrier ~ '(gate|entrance|lift_gate|stile|block|cycle_barrier|kissing_gate|toll_booth|turnstile|border_control|swing_gate|log|bump_gate)' { add mkgmap:housenumber='(${barrier})' ; add mkgmap:street='bicycle:${bicycle}' ; add mkgmap:postal_code='open: ${opening_hours}' ;  }
-(barrier=gate | barrier=entrance | barrier=turnstile | barrier=bump_gate) [0x3200 resolution 23]
-barrier=* & barrier ~ '(lift_gate|toll_booth|border_control|swing_gate|log)' [0x3201 resolution 23]
-barrier=stile [0x3202 resolution 23]
-barrier=* & barrier ~ '(cycle_barrier|kissing_gate)' [0x3203 resolution 23]
-(barrier=bollard | barrier=bus_trap | barrier=block) [0x1108 resolution 23]
-barrier=cattle_grid [0x281a resolution 23]
 
-					 
 power_source=wind | man_made=power_wind | generator:source=wind | man_made=windpump [0x2819 resolution 24]
 
-toponym=water [0x6603 resolution 23] 
-toponym=* [0x1e03 resolution 23]
+toponym=water [0x6603 resolution 24]
+toponym=* [0x1e03 resolution 24]
 
 # pois from lines
 bicycle:conditional=* & mkgmap:line2poitype=start { name 'bicycle=${bicycle:conditional}' } [0x1108 resolution 24]
@@ -362,5 +362,5 @@ addr:housename=* [0x2900 resolution 24]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
-include 'inc/compat_points'; 
+include 'inc/compat_points';
 

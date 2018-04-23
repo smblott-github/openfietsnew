@@ -22,6 +22,7 @@ build: polygons/$(area).poly     # Fetch this from elsewhere.
 build: polygons/$(area).poly.fid # Set this to a (unique) two-digit number
 build: data/europe.pbf
 build: data/$(area)/pbf
+build: data/$(area)/img
 
 .PHONY: area
 area:
@@ -52,28 +53,28 @@ data/$(area)/pbf: data/europe.pbf
               $<
 	mv -v $(tmp) $@
 
-style/$(style)/template.args:
-	touch style/$(style)/template.args
+styles/$(style)/template.args:
+	touch styles/$(style)/template.args
 
 # Compile the map tiles.
-data/$(area)/img: style/$(style)/template.args
+data/$(area)/img: styles/$(style)/template.args
 data/$(area)/img: data/$(area)/pbf
 	rm -fr $(tmp) $@
 	mkdir -p $(tmp) $(data)/$(area)
-	cp style/typ/$(style).typ $(tmp)/$(style).typ
-	gmt -w -y $(fid) $(tmpdir)/$(style).typ
+	cp styles/typ/$(style).typ $(tmp)/$(style).typ
+	gmt -w -y $(fid) $(tmp)/$(style).typ
 	nice mkgmap                                     \
 	   --output-dir=$(tmp)                          \
-	   --read-config=style/$(style)/template.args   \
+	   --read-config=styles/$(style)/template.args   \
 	   --precomp-sea=$(sea)                         \
 	   --bounds=$(bounds)                           \
-           --family-id=$(ml)                            \
+           --family-id=$(fid)                            \
 	   --area-name=$(area)                          \
 	   --country-name=$(area)                       \
 	   --gmapsupp                                   \
 	   --max-jobs                                   \
 	   --tdbfile                                    \
-	   --style-file=style/$(style)                  \
+	   --style-file=styles/$(style)                  \
 	   --read-config=data/$(area)/pbf/template.args \
 	   $(tmp)/$(style).typ
 	mv -v $(tmp) $@

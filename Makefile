@@ -71,9 +71,11 @@ data/$(area)/img: data/$(area)/pbf
 	   --read-config=styles/$(style)/template.args   \
 	   --precomp-sea=$(sea)                         \
 	   --bounds=$(bounds)                           \
-           --family-id=$(fid)                            \
-	   --area-name=$(area)                          \
-	   --country-name=$(area)                       \
+           --family-id=$(fid)                           \
+           --description="OSM $(area) ($(style))"       \
+	   --area-name="$(area)"                        \
+           --country-name="$(area)"                     \
+           --region-name="$(area)"                      \
 	   --gmapsupp                                   \
 	   --remove-ovm-work-files                      \
 	   --max-jobs=4                                 \
@@ -102,6 +104,9 @@ countries += switzerland
 all: $(countries)
 $(countries):
 	make area=$@ build
+
+install:
+	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/* ~/garmin/Garmin/
 
 test ireland:
 	make area=ireland-and-northern-ireland

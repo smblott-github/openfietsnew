@@ -59,7 +59,8 @@ styles/$(style)/template.args:
 	touch styles/$(style)/template.args
 
 # Compile the map tiles.
-data/$(area)/img: styles/$(style)/template.args
+data/$(area)/img: styles/typ/$(style).typ
+data/$(area)/img: $(shell find styles/$(style) -type f)
 data/$(area)/img: data/$(area)/pbf
 	rm -fr $(tmp) $@
 	mkdir -p $(tmp) $(data)/$(area)
@@ -74,6 +75,7 @@ data/$(area)/img: data/$(area)/pbf
 	   --area-name=$(area)                          \
 	   --country-name=$(area)                       \
 	   --gmapsupp                                   \
+	   --remove-ovm-work-files                      \
 	   --max-jobs=4                                 \
 	   --tdbfile                                    \
 	   --style-file=styles/$(style)                  \
@@ -101,4 +103,7 @@ all: $(countries)
 $(countries):
 	make area=$@ build
 
-.PHONY: all $(countries)
+test ireland:
+	make area=ireland-and-northern-ireland
+
+.PHONY: all $(countries) test ireland

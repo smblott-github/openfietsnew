@@ -3733,8 +3733,8 @@ String=2,Autobahn (Radfahren erlaubt)
 String=3,auto(snel)weg (fietsen toegestaan)
 String=4,motorway, trunk (cycling allowed)
 TextSize=2
-Linewidth=3
-Borderwidth=2
+Linewidth=1
+Borderwidth=3
 Color=0,0xbdcad5
 Color=1,0x7b306a
 [END]
@@ -3758,8 +3758,8 @@ String=2,Hauptverbindungsstraﬂe
 String=3,N-weg
 String=4,principal highway
 TextSize=2
-Linewidth=3
-Borderwidth=2
+Linewidth=1
+Borderwidth=3
 Color=0,0xb4b4b4
 Color=1,0x525252
 [END]
@@ -3770,8 +3770,8 @@ String=2,Landesstraﬂe
 String=3,Provinciale weg
 String=4,secondary highway
 TextSize=2
-Linewidth=3
-Borderwidth=2
+Linewidth=1
+Borderwidth=3
 Color=0,0xffca00
 Color=1,0x7b6500
 [END]
@@ -3795,9 +3795,7 @@ String=3,straat
 String=4,street
 TextSize=2
 Linewidth=2
-Borderwidth=2
-Color=0,0xffffff
-Color=1,0x393000
+Color=0,0x393000
 [END]
 
 [Polyline]
@@ -3808,9 +3806,9 @@ String=4,service road
 TextSize=2
 Color=0,0x414141
 Color=1,0xffffff
-Line=00000111110000011111000001111100
+Line=00000001110000000111000000011100
 Line=11111111111111111111111111111111
-Line=00000111110000011111000001111100
+Line=00000001110000000111000000011100
 [END]
 
 [Polyline]
@@ -4117,7 +4115,7 @@ String=2,Fluﬂ
 TextSize=2
 TextColor=0x0000d5
 Linewidth=3
-Color=0,0x3900ff
+Color=0,0x7bcad5
 [END]
 
 [Polyline]
@@ -4150,8 +4148,7 @@ String=4,icn
 TextSize=1
 Linewidth=2
 Borderwidth=2
-Color=0,0x0000ff
-Color=1,0xffff00
+Color=0,0xff0000
 [END]
 
 [Polyline]
@@ -4160,7 +4157,7 @@ String=4,ncn
 TextSize=1
 TextColor=0x00ff00
 Linewidth=4
-Color=0,0x00656a
+Color=0,0x3930b4
 [END]
 
 [Polyline]
@@ -4616,8 +4613,9 @@ Line=01111111011111110111111101111111
 Type=0x10102
 String=4,alpine hiking trail
 TextSize=2
-Color=0,0xbd95b4
-Line=00001111000011110000111100001111
+Color=0,0x39656a
+Line=0000....0000....0000....0000....
+Line=0000....0000....0000....0000....
 [END]
 
 [Polyline]
@@ -4660,14 +4658,13 @@ Line=00111111000000000011111100000000
 
 [Polyline]
 Type=0x10106
-String=4,street
-String=3,straat
 String=2,Straﬂe
+String=3,straat
+String=4,street
 TextSize=1
-Color=0,0xffffff
-Line=00111111000000000011111100000000
-Line=00111111000000000011111100000000
-Line=00111111000000000011111100000000
+Color=0,0x313131
+Line=00000000000000000000000000000000
+Line=00000000000000000000000000000000
 [END]
 
 [Polyline]
@@ -4924,11 +4921,11 @@ Line=11111111111111111111111111111111
 [Polygon]
 Type=0x02
 DrawOrder=3
-String=4,residential area
-String=3,bebouwde kom
 String=2,Stadtgebiet
+String=3,bebouwde kom
+String=4,residential area
 TextSize=1
-Color=0,0xf7fbe3
+Color=0,0xe6e6e6
 [END]
 
 [Polygon]
@@ -4986,11 +4983,11 @@ Line=11111111111111111111111111111111
 [Polygon]
 Type=0x05
 DrawOrder=7
-String=4,parking
-String=3,parkeerplaats
 String=2,Parkplatz
+String=3,parkeerplaats
+String=4,parking
 TextSize=1
-Color=0,0xd5d5d5
+Color=0,0xc5c5c5
 [END]
 
 [Polygon]
@@ -5007,21 +5004,21 @@ Color=0,0xbd956a
 [Polygon]
 Type=0x07
 DrawOrder=4
-String=4,airport
-String=3,vliegveld
 String=2,Flughafen
+String=3,vliegveld
+String=4,airport
 TextSize=2
-Color=0,0xeeeee0
+Color=0,0xff956a
 [END]
 
 [Polygon]
 Type=0x08
 DrawOrder=3
-String=4,retail area
-String=3,winkels
 String=2,Einkaufszentrum
+String=3,winkels
+String=4,retail area
 TextSize=1
-Color=0,0xe6e6e6
+Color=0,0xffff8b
 [END]
 
 [Polygon]
@@ -5092,11 +5089,11 @@ Color=0,0xff956a
 [Polygon]
 Type=0x0c
 DrawOrder=4
-String=4,commercial/industrial area
-String=3,bedrijventerrein
 String=2,Industriegebiet
+String=3,bedrijventerrein
+String=4,commercial/industrial area
 TextSize=1
-Color=0,0xe6e6e6
+Color=0,0xb4b4b4
 [END]
 
 [Polygon]
@@ -5154,11 +5151,11 @@ Color=0,0xbdcab4
 [Polygon]
 Type=0x13
 DrawOrder=8
-String=4,building
-String=3,gebouw
 String=2,Bebauung
+String=3,gebouw
+String=4,building
 TextSize=1
-Color=0,0xffca8b
+Color=0,0xa4a4a4
 [END]
 
 [Polygon]
@@ -5230,44 +5227,44 @@ Color=0,0xbdffb4
 [Polygon]
 Type=0x17
 DrawOrder=4
-String=4,park
-String=3,park
 String=2,Park
+String=3,park
+String=4,park
 TextSize=1
 TextColor=0x00ff00
 Color=0,0x7bff00
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
-Line=01010101010101010101010101010101
-Line=11111111111111111111111111111111
+Line=0.0.0.000.0.0.0.0.0.0.0.00000000
+Line=.....0..0......00.0.0.0000..0..0
+Line=0.00000.000.000.0.0.000.000.0.00
+Line=...00000000000..0000...00.0.0..0
+Line=0.0.0.0.0.0.000.0.000.0.0.000.00
+Line=.0....00..00...0.0...0...0000..0
+Line=0.0.0.000.000.0000000.0.00000.00
+Line=000000..00..0.00.0.0000000.00.00
+Line=000.0.00000.000.0.000.000.000.0.
+Line=...000.0....0....00.000....0....
+Line=0.000.0.0.0.0.0.0.0.000.00000.0.
+Line=...0..0.0.0.0....00.00..00...00.
+Line=0.00000.0000000.0.0.0.00000.0000
+Line=..0..0.0000....000.00.00.0.0...0
+Line=000000000.0.0.0.0.000.00000.0.00
+Line=0000...0.0.0..0......000....00..
+Line=0.0.0.0000000000000000000.0.0.0.
+Line=0.....0.0..00.00...0.000..0.0...
+Line=000.0.0.000000000000000.0.000.0.
+Line=.0...0.0.0000000.00.....0..00...
+Line=0.0.0.000.0.0.0.000.0.0.0000000.
+Line=.....0.0000000000..0..0.0..0.00.
+Line=0.0.000.0.000000000.000000000.0.
+Line=0.0.0.0.0.000.00.....000...0..00
+Line=0.0.000000000.00000.0.0.0.0.0000
+Line=.....0..0...0.0......0.0000...0.
+Line=0.0.0.0.0.0.0.0.000.0.000.000.0.
+Line=..0......0.00.0000000000.....0.0
+Line=0.00000.00000000000.0.000.0.0.00
+Line=0..00...000.00000.0...00.....0.0
+Line=0.0.000.00000.00000.0.0.0.00000.
+Line=...000....0.0000.000.......000.0
 [END]
 
 [Polygon]
@@ -5316,12 +5313,13 @@ Line=10101010101010101010101010101010
 [Polygon]
 Type=0x19
 DrawOrder=4
-String=4,sport/recreation
-String=3,sport/recreatie
 String=2,Sport
+String=3,sport/recreatie
+String=4,sport/recreation
 TextSize=1
 TextColor=0x006500
 Color=0,0xbdff6a
+Color=1,0x00ca00
 Line=01010101010101010101010101010101
 Line=10101010101010101010101010101010
 Line=01010101010101010101010101010101
@@ -6101,11 +6099,11 @@ Line=01010101010101010101010101010101
 [Polygon]
 Type=0x10100
 DrawOrder=1
-String=4,area
-String=3,gebied
 String=2,Gebiet
+String=3,gebied
+String=4,area
 TextSize=1
-Color=0,0xd8f7ba
+Color=0,0xbdffd5
 [END]
 
 [Polygon]

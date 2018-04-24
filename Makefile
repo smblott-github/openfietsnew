@@ -111,6 +111,10 @@ install:
 	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/* ~/garmin/Garmin/
 
 test ireland:
-	make area=ireland-and-northern-ireland
+	make area=ireland-and-northern-ireland build
+
+alps:
+	make area=alps-east build
+	# make area=alps-west build
 
 .PHONY: all $(countries) test ireland

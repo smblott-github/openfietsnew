@@ -103,18 +103,21 @@ countries += switzerland
 countries += alps-east
 countries += alps-west
 
-all: $(countries)
 $(countries):
-	make area=$@ build
+	$(MAKE) area=$@ build
 
 install:
 	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/* ~/garmin/Garmin/
 
+all:
+	$(MAKE) ireland
+	$(MAKE) alps
+
 test ireland:
-	make area=ireland-and-northern-ireland build
+	$(MAKE) area=ireland-and-northern-ireland build
 
 alps:
-	make area=alps-east build
-	# make area=alps-west build
+	$(MAKE) area=alps-east build
+	$(MAKE) area=alps-west build
 
 .PHONY: all $(countries) test ireland

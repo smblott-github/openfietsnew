@@ -100,6 +100,8 @@ countries += great-britain
 countries += ireland-and-northern-ireland
 countries += slovenia
 countries += switzerland
+countries += alps-east
+countries += alps-west
 
 all: $(countries)
 $(countries):

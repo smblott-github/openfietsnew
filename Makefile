@@ -155,7 +155,7 @@ $(countries):
 	$(MAKE) area=$@ build
 
 install:
-	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/* ~/garmin/Garmin/
+	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/*.img ~/garmin/Garmin/
 
 all:
 	$(MAKE) ireland

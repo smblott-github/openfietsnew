@@ -3723,8 +3723,8 @@ String=2,Radroute
 String=3,fietsroute
 String=4,cycling route
 TextSize=1
-Linewidth=3
-Color=0,0x7b958b
+Linewidth=4
+Color=0,0xff0000
 [END]
 
 [Polyline]
@@ -3745,11 +3745,8 @@ String=2,Radroute
 String=3,fietsroute
 String=4,cycle route
 TextSize=2
+Linewidth=4
 Color=0,0x0030ff
-Line=10000000011111111000000001111111
-Line=10000000011111111000000001111111
-Line=10000000011111111000000001111111
-Line=10000000011111111000000001111111
 [END]
 
 [Polyline]

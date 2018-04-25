@@ -75,16 +75,19 @@ data/$(area)/img: data/$(area)/pbf
 	   --precomp-sea=$(sea)                         \
 	   --bounds=$(bounds)                           \
            --family-id=$(fid)                           \
+           --mapname=$(fid)0001                         \
            --description="OSM $(area) ($(style))"       \
 	   --area-name="$(area)"                        \
+	   --family-name="$(area)"                      \
+	   --series-name="$(area)"                      \
            --country-name="$(area)"                     \
            --region-name="$(area)"                      \
 	   --gmapsupp                                   \
 	   --remove-ovm-work-files                      \
 	   --max-jobs=4                                 \
 	   --tdbfile                                    \
-	   --style-file=styles/$(style)                  \
-	   --read-config=data/$(area)/pbf/template.args \
+	   --style-file=styles/$(style)                 \
+	   $(data)/$(area)/pbf/*.pbf                    \
 	   $(tmp)/$(style).typ
 	mv -v $(tmp) $@
 
@@ -101,16 +104,19 @@ data/$(area)/cycle-route: data/$(area)/pbf
 	   --read-config=styles/cycle-route/template.args \
 	   --precomp-sea=$(sea)                           \
 	   --bounds=$(bounds)                             \
-           --family-id=$(cfid)                            \
+           --family-id=$(crfid)                           \
+           --mapname=$(crfid)0001                         \
            --description="OSM $(area) (cycle routes)"     \
 	   --area-name="$(area) routes"                   \
+	   --family-name="$(area) routes"                 \
+	   --series-name="$(area) routes"                 \
            --country-name="$(area) routes"                \
            --region-name="$(area) routes"                 \
 	   --gmapsupp                                     \
 	   --max-jobs=4                                   \
 	   --tdbfile                                      \
 	   --style-file=styles/cycle-route                \
-	   --read-config=data/$(area)/pbf/template.args   \
+	   $(data)/$(area)/pbf/*.pbf                      \
 	   $(tmp)/cycle-route.typ
 	mv -v $(tmp) $@
 

@@ -27,7 +27,7 @@ build: data/$(area)/pbf
 build: data/$(area)/img
 build: data/$(area)/cycle-route
 build: $(maps)/$(area).img
-build: $(maps)/$(area)-routes.img
+build: $(maps)/cycle-route/$(area)-routes.img
 
 .PHONY: area
 area:
@@ -133,9 +133,9 @@ $(maps)/$(area).img: $(data)/$(area)/cycle-route
 	# ln -v $(tmp)/gmapsupp.img $@
 	ln -v $(data)/$(area)/img/gmapsupp.img $@
 
-$(maps)/$(area)-routes.img: data/$(area)/cycle-route
+$(maps)/cycle-route/$(area)-routes.img: data/$(area)/cycle-route
 	rm -f $@
-	mkdir -p $(maps)
+	mkdir -p $(maps)/cycle-route
 	ln -v data/$(area)/cycle-route/gmapsupp.img $@
 
 countries  =

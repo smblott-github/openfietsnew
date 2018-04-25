@@ -120,4 +120,7 @@ alps:
 	$(MAKE) area=alps-east build
 	$(MAKE) area=alps-west build
 
-.PHONY: all $(countries) test ireland
+martigny:
+	$(MAKE) area=martigny build
+
+.PHONY: all $(countries) test ireland alps martigny

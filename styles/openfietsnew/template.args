@@ -19,3 +19,4 @@ keep-going
 net
 route
 index
+draw-priority: 25

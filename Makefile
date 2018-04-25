@@ -25,7 +25,9 @@ build: polygons/$(area).poly.fid # Set this to a (unique) two-digit number
 build: data/europe.pbf
 build: data/$(area)/pbf
 build: data/$(area)/img
+build: data/$(area)/cycle-route
 build: $(maps)/$(area).img
+build: $(maps)/$(area)-routes.img
 
 .PHONY: area
 area:
@@ -86,10 +88,49 @@ data/$(area)/img: data/$(area)/pbf
 	   $(tmp)/$(style).typ
 	mv -v $(tmp) $@
 
+# Compile the cycle-route tiles.
+data/$(area)/cycle-route: styles/typ/cycle-route.typ
+data/$(area)/cycle-route: $(shell find styles/cycle-route -type f)
+data/$(area)/cycle-route: data/$(area)/pbf
+	rm -fr $(tmp) $@
+	mkdir -p $(tmp) $(data)/$(area)
+	cp styles/typ/cycle-route.typ $(tmp)/
+	gmt -w -y $(crfid) $(tmp)/cycle-route.typ
+	nice mkgmap                                       \
+	   --output-dir=$(tmp)                            \
+	   --read-config=styles/cycle-route/template.args \
+	   --precomp-sea=$(sea)                           \
+	   --bounds=$(bounds)                             \
+           --family-id=$(cfid)                            \
+           --description="OSM $(area) (cycle routes)"     \
+	   --area-name="$(area) routes"                   \
+           --country-name="$(area) routes"                \
+           --region-name="$(area) routes"                 \
+	   --gmapsupp                                     \
+	   --max-jobs=4                                   \
+	   --tdbfile                                      \
+	   --style-file=styles/cycle-route                \
+	   --read-config=data/$(area)/pbf/template.args   \
+	   $(tmp)/cycle-route.typ
+	mv -v $(tmp) $@
+
 $(maps)/$(area).img: $(data)/$(area)/img
-	mkdir -vp $(maps)
-	rm -fv $@
-	ln -v $</gmapsupp.img $@
+$(maps)/$(area).img: $(data)/$(area)/cycle-route
+	rm -fr $(tmp) $@
+	# mkdir -vp $(tmp) $(data)/$(area) $(maps)
+	# nice mkgmap                                 \
+	#    --gmapsupp                               \
+	#    --output-dir=$(tmp)                      \
+	#    --description="$(area)/$(style)"         \
+	#      $(data)/$(area)/img/gmapsupp.img       \
+	#      $(data)/$(area)/cycle-route/gmapsupp.img
+	# ln -v $(tmp)/gmapsupp.img $@
+	ln -v $(data)/$(area)/img/gmapsupp.img $@
+
+$(maps)/$(area)-routes.img: data/$(area)/cycle-route
+	rm -f $@
+	mkdir -p $(maps)
+	ln -v data/$(area)/cycle-route/gmapsupp.img $@
 
 countries  =
 countries += austria

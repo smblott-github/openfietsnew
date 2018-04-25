@@ -1,0 +1,30 @@
+
+# velomap has:
+# levels = 0:24, 1:22, 2:21, 3:20, 4:19, 5:18, 6:16, 7:14
+
+# Insufficient detail with this, ...
+# levels = 0:24, 1:23, 2:22, 3:21, 4:20, 5:18, 6:16
+
+# original cyclenew:
+# levels = 0:24, 1:22, 2:20, 3:18, 4:17, 5:16, 6:15, 7:14
+
+levels = 0:24, 1:23, 2:22, 3:21, 4:20, 5:19, 6:18
+
+# Initial 2014 version, in overview, too slow.
+# levels = 0:24, 1:23, 2:22, 3:20, 4:18, 5:17, 6:16
+
+# 2/20 appears at 500m (for polygons, not sure for lines).
+# 3/18 appears at 2km (for polygons, not sure for lines).
+
+# 2/20 appears at 2km for lines.
+# 1/22 appears at 500m for lines (e.g. residential).
+
+# From internet:
+# Resolution Scale on device
+# 16 30km-12km
+# 18 8km-3km
+# 20 2km-800m
+# 22 500m-200m
+# 23 300m-80m
+# 24 120m-50m
+

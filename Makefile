@@ -17,6 +17,7 @@ maps = maps
 style=openfietsnew
 id = $(shell cat polygons/$(area).poly.fid )
 fid = 21$(id)
+crfid = 22$(id)
 
 build: area                      # This is just to check that the "area" variable is defined."
 build: polygons/$(area).poly     # Fetch this from elsewhere.

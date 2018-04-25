@@ -1,0 +1,44 @@
+type=route & route=bicycle & network=icn {
+   apply {
+      set ncn=yes;
+      set cn=yes;
+      set ncn_ref='${ref}';
+      set cn_ref='${ref}';
+   }
+}
+
+type=route & route=bicycle & network=ncn {
+   apply {
+      set ncn=yes;
+      set cn=yes;
+      set ncn_ref='${ref}';
+      set cn_ref='${ref}';
+   }
+}
+
+type=route & route=bicycle & network='National Byway' {
+   apply {
+      set national_byway=yes;
+      set ncn=yes;
+      set cn=yes;
+      set cn_ref='${ref}';
+   }
+}
+
+type=route & route=bicycle & network=rcn {
+   apply {
+      set rcn=yes;
+      set cn=yes;
+      set rcn_ref='${ref}';
+      set cn_ref='${ref}';
+   }
+}
+
+type=route & route=bicycle & network=lcn {
+   apply {
+      set lcn=yes;
+      set cn=yes;
+      set lcn_ref='${ref}';
+      set cn_ref='${ref}';
+   }
+}

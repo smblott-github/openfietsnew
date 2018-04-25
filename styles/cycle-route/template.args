@@ -1,0 +1,13 @@
+
+family-name:                  CyclenRoutes
+description:                  OSM/SMBlott/CycleRoutes
+
+reduce-point-density:         2.6
+
+gmapsupp
+max-jobs
+tdbfile
+merge-lines
+
+transparent
+draw-priority: 10000

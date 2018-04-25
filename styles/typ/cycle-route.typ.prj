@@ -1,0 +1,160 @@
+# Project file
+
+[Project]
+Product=
+FamilyID=2200
+Version=0
+Compile=0
+Index=0
+Style=1
+GarminColor=1
+IMGpath=/home/blott/openfietsnew/styles/typ
+[END]
+
+
+# Polylines
+
+[Polyline]
+Type=0x01
+String=0,NCN
+Linewidth=2
+Borderwidth=1
+Color=0,0xff0000
+Color=1,0xff4444
+[END]
+
+[Polyline]
+Type=0x02
+String=0,NCN (off-road)
+Color=0,0xff0000
+Color=1,0xffdd00
+Line=00000000000000000000000000000000
+Line=11100011100011100011100011100011
+Line=11100011100011100011100011100011
+Line=00000000000000000000000000000000
+[END]
+
+[Polyline]
+Type=0x03
+String=0,RCN
+Linewidth=4
+Color=0,0x0000ff
+[END]
+
+[Polyline]
+Type=0x04
+String=0,RCN (off-road)
+Color=0,0x0000ff
+Color=1,0xffdd00
+Line=00000000000000000000000000000000
+Line=11100011100011100011100011100011
+Line=11100011100011100011100011100011
+Line=00000000000000000000000000000000
+[END]
+
+[Polyline]
+Type=0x05
+String=0,Cycle Route
+Linewidth=4
+Color=0,0x0065b4
+[END]
+
+[Polyline]
+Type=0x06
+String=0,Cycle Route (off-road)
+Color=0,0x0066bb
+Color=1,0xffdd00
+Line=00000000000000000000000000000000
+Line=11100011100011100011100011100011
+Line=11100011100011100011100011100011
+Line=00000000000000000000000000000000
+[END]
+
+[Polyline]
+Type=0x13
+String=0,Cycleway
+Color=0,0x0000ff
+Line=00000011000000110000001100000011
+Line=00000011000000110000001100000011
+[END]
+
+[Polyline]
+Type=0x14
+String=0,Cycleway (offroad)
+Color=0,0x0000ff
+Color=1,0xffdd00
+Line=00000111000001110000011100000111
+Line=00000111000001110000011100000111
+[END]
+
+[Polyline]
+Type=0x18
+String=0,NCN (difficult)
+Color=0,0xff0000
+Line=01010101010101010101010101010101
+Line=01010101010101010101010101010101
+Line=01010101010101010101010101010101
+Line=01010101010101010101010101010101
+[END]
+
+[Polyline]
+Type=0x19
+String=0,LCN (difficult)
+Color=0,0x0000ff
+Line=01010101010101010101010101010101
+Line=01010101010101010101010101010101
+Line=01010101010101010101010101010101
+Line=01010101010101010101010101010101
+[END]
+
+# Python scripts used by 'Script'
+
+[CUSTOM_HEADER]
+# Python script: customizing cities
+# variables:    overview     1 overview map
+#                            0 detailed map
+#               name         name of the tile
+#               ident        ident of tile ( 8 character string )
+#               familyid     family ID ( 16 bit, read only )
+#               drawpriority draw priority of tile ( 1 ... 31 )
+#               transparent  1 map is transparent
+#                            0 map is not transparent
+#               copyright    copyright in MapSource
+#               levels       number of levels in map
+#               level[]      bit / coord, index is level
+#               zoom[]       zoom level
+[END]
+
+[CUSTOM_POI]
+# Python script: customizing points
+# variables:    overview   1 overview map
+#                          0 detailed map
+#               type       code of object
+#               levels     number of levels in map
+#               level      visibility up to level, -1: remove
+#               label      text for object
+#               data[]     array of coordinates [y,x]
+[END]
+
+[CUSTOM_POLYLINE]
+# Python script: customizing polylines
+# variables:    overview   1 overview map
+#                          0 detailed map
+#               type       code of object
+#               levels     number of levels in map
+#               level      visibility up to level, -1: remove
+#               label      text for object
+#               data[]     array of coordinates [y,x]
+[END]
+
+[CUSTOM_POLYGON]
+# Python script: customizing polygons [RGN80]
+# variables:    overview   1 overview map
+#                          0 detailed map
+#               type       code of object
+#               levels     number of levels in map
+#               level      visibility level, -1: remove
+#               label      text for object
+#               data[]     array of coordinates [y,x]
+[END]
+

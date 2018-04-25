@@ -1,0 +1,31 @@
+
+# ########################################################################
+# Naming.
+
+highway=* & cn!=yes & junction=roundabout  { name 'roundabout';                                         }
+cn=yes              & junction=roundabout  { name 'roundabout';                                         }
+
+highway=* & cn!=yes & junction!=roundabout { name '${name}' | '${ref}';                                 }
+cn=yes              & junction!=roundabout { name '${cn_ref|highway-symbol:box}' | '${name}' | '${ref}' }
+
+# ################################
+
+ncn=yes               & difficult=yes                                 [ 0x18    level 6 ]
+ncn=yes & offroad=yes & difficult!=yes                                [ 0x02    level 6 ]
+ncn=yes                                                               [ 0x01    level 6 ]
+
+rcn=yes & difficult=yes                                               [ 0x19    level 5 ]
+rcn=yes & offroad=yes & difficult!=yes                                [ 0x04    level 5 ]
+rcn=yes                                                               [ 0x03    level 5 ]
+
+lcn=yes & offroad=yes & difficult!=yes                                [ 0x06    level 3 ]
+lcn=yes               & difficult!=yes                                [ 0x05    level 3 ]
+
+cn=yes & offroad=yes  & difficult!=yes                                [ 0x06    level 2 ]
+cn=yes                & difficult!=yes                                [ 0x05    level 2 ]
+
+bicycle=designated { set highway=cycleway; }
+bicycle=official   { set highway=cycleway; }
+highway=cycleway & offroad=yes & difficult!=yes                       [ 0x14    level 2 ]
+highway=cycleway               & difficult!=yes                       [ 0x13    level 2 ]
+

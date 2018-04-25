@@ -123,4 +123,7 @@ alps:
 martigny:
 	$(MAKE) area=martigny build
 
+watch:
+	watch -n 1 ls -lht $(tmp)
+
 .PHONY: all $(countries) test ireland alps martigny

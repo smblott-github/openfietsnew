@@ -5,6 +5,10 @@ bridge=* & bridge:name=* & name!=$bridge:name  {name '${name} (${bridge:name})' 
 include 'inc/address';
 include 'inc/contours';
 
+# # Major cycle routes.
+# highway=* & cn_red=yes  {name '${iref} (${iname|not-equal:iref})' | '${iref}' }  [0x00 road_class=4 road_speed=7 resolution 15]
+# highway=* & cn_blue=yes {name '${iref} (${iname|not-equal:iref})' | '${iref}' }  [0x02 road_class=4 road_speed=7 resolution 17]
+
 # clear tags
 motor_vehicle=* { add car='${motor_vehicle}' ; delete motor_vehicle }
 motorcar=*      { add car='${motorcar}' ; delete motorcar }

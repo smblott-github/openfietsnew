@@ -243,7 +243,8 @@ highway=cycleway & mkgmap:unpaved=1 & unpaved!=2 {set motorcar=no} [0x0b road_cl
 highway=cycleway & unpaved=2 [0x0e road_class=2 road_speed=2 resolution 23 continue with_actions]
 highway=cycleway & mkgmap:unpaved!=1 & unpaved!=2 & track!=yes [0x16 road_class=3 road_speed=2 resolution 23 continue with_actions]
 
-(highway=unclassified | highway=service) & service!=* [0x10000 resolution 20-21 continue with_actions]
+# These small streets are VERY noisy in populated areas.
+# (highway=unclassified | highway=service) & service!=* [0x10000 resolution 20-21 continue with_actions]
 (highway=unclassified | highway=service) & service!=* [0x10 resolution 22-22 continue with_actions]
 
 highway=service & bicycle!=no [0x07 road_class=1 road_speed=2 resolution 23 continue]

@@ -237,7 +237,7 @@ highway=cycleway [0x11 resolution 20-22 continue with_actions]
 highway=cycleway & (moped=yes | moped=designated) [0x10612 resolution 23 continue with_actions]
 highway=cycleway & (moped=yes | moped=designated) & bicycle=no [0x10018 resolution 23]
 highway=cycleway & (mofa=no | traffic_sign="NL:G13") {set toll=no} [0x10613 resolution 23 continue with_actions]
-highway=cycleway & junction=roundabout [0x16 resolution 23]
+highway=cycleway & junction=roundabout [0x16 road_class=3 road_speed=2 resolution 23]
 highway=cycleway & track=yes {set motorcar=no} [0x1602 road_class=2 road_speed=2 resolution 23 continue with_actions]
 highway=cycleway & mkgmap:unpaved=1 & unpaved!=2 {set motorcar=no} [0x0b road_class=1 road_speed=1 resolution 23 continue with_actions]
 highway=cycleway & unpaved=2 [0x0e road_class=2 road_speed=2 resolution 23 continue with_actions]
@@ -295,8 +295,11 @@ highway=track & (tracktype=grade4 | tracktype=grade5 | tracktype!=*) & bicyclero
 (highway=path | highway=footway | highway=bridleway) & bicycleroute=yes  [0x0d road_class=1 road_speed=1 resolution 22 continue with_actions]
 (highway=path | highway=footway | highway=bridleway) & bicycleroute!=yes & (bicycle=yes  | mtb=yes | mtb_from_relation=yes | cycleway=*)  [0x0d road_class=1 road_speed=1 resolution 22]
 
-# (highway=path | highway=footway) & bicycleroute!=yes  [0x15 resolution 22-22 continue with_actions]
-# (highway=path | highway=footway) & bicycleroute!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 23]
+# Put in Swiss (and other alpine) mountain paths.
+(highway=footway | highway=track | highway=path ) & bicycleroute!=yes & sac_scale=* & sac_scale ~ '.*(mountain|alpine)_hiking'  [0x0a road_class=0 road_speed=0 resolution 23]
+
+(highway=path | highway=footway) & bicycleroute!=yes & footway!=sidewalk  [0x15 resolution 22-22 continue with_actions]
+(highway=path | highway=footway) & bicycleroute!=yes & footway!=sidewalk {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x0a road_class=0 road_speed=0 resolution 23]
 
 highway=bridleway & bicycle!=yes & bicycleroute!=yes & mtb_from_relation!=yes & mtb!=yes {add access = no; add foot = yes; set mkgmap:unpaved=1} [0x2915 road_class=0 road_speed=0 resolution 23]
 

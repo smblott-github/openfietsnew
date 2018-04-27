@@ -42,6 +42,7 @@ data/europe.pbf: $(europe) $(srtm)
 	mv -v $(tmp)/europe.pbf $@
 
 # Split the data into tiles for $(area).
+data/$(area)/pbf: polygons/$(area).poly
 data/$(area)/pbf: data/europe.pbf
 	rm -fr $(tmp) $@
 	mkdir -p $(tmp) $(data)/$(area)
@@ -55,7 +56,7 @@ data/$(area)/pbf: data/europe.pbf
 	   --precomp-sea=$(sea)                   \
            --output=pbf                           \
            --output-dir=$(tmp)                    \
-              $<
+              data/europe.pbf
 	mv -v $(tmp) $@
 
 styles/$(style)/template.args:
@@ -160,6 +161,7 @@ install:
 all:
 	$(MAKE) ireland
 	$(MAKE) alps
+	$(MAKE) france-strip
 
 test ireland:
 	$(MAKE) area=ireland-and-northern-ireland build
@@ -167,6 +169,9 @@ test ireland:
 alps:
 	$(MAKE) area=alps-east build
 	$(MAKE) area=alps-west build
+
+france-strip:
+	$(MAKE) area=france-strip build
 
 martigny:
 	$(MAKE) area=martigny build

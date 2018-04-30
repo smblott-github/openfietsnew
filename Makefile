@@ -158,6 +158,9 @@ $(countries):
 install:
 	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/*.img ~/garmin/Garmin/
 
+install-routes:
+	sudo rsync -v --progress --modify-window=1 --update --times --no-o --no-g $(maps)/cycle-route/*.img ~/garmin/Garmin/
+
 all:
 	$(MAKE) ireland
 	$(MAKE) alps

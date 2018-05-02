@@ -3784,7 +3784,7 @@ String=4,tertiary road
 TextSize=2
 Linewidth=2
 Borderwidth=2
-Color=0,0xffff6a
+Color=0,0xffca00
 Color=1,0x7b6500
 [END]
 
@@ -4121,7 +4121,7 @@ Type=0x20
 TextSize=1
 TextColor=0x996633
 Linewidth=1
-Color=0,0xdbb793
+Color=0,0xbdca8b
 [END]
 
 [Polyline]
@@ -4268,7 +4268,7 @@ String=4,tertiary road
 TextSize=1
 Linewidth=2
 Borderwidth=1
-Color=0,0xffff6a
+Color=0,0xffca20
 Color=1,0x7b6500
 [END]
 
@@ -4291,34 +4291,34 @@ Line=11111111111111111111111111111111
 
 [Polyline]
 Type=0x10003
-String=4,secondary highway (no cycling)
-String=3,Provinciale weg (fietsverbod)
 String=2,Landesstraﬂe (Radverbot)
+String=3,Provinciale weg (fietsverbod)
+String=4,secondary highway (no cycling)
 TextSize=2
-Color=0,0xffca00
-Color=1,0x7b6500
-Line=11111111111111111111111111111111
-Line=00000000000000000000000000000000
-Line=00000000000000000000000000000000
-Line=01111110000000000111111000000000
-Line=00000000000000000000000000000000
+Color=0,0x7b6500
+Color=1,0xffca00
 Line=00000000000000000000000000000000
 Line=11111111111111111111111111111111
+Line=11111111111111111111111111111111
+Line=10000001111111111000000111111111
+Line=11111111111111111111111111111111
+Line=11111111111111111111111111111111
+Line=00000000000000000000000000000000
 [END]
 
 [Polyline]
 Type=0x10004
-String=4,tertiary road (no cycling)
-String=3,Regionale weg (fietsverbod)
 String=2,Kreisstraﬂe (Radverbot)
+String=3,Regionale weg (fietsverbod)
+String=4,tertiary road (no cycling)
 TextSize=2
-Color=0,0xffff6a
-Color=1,0x7b6500
-Line=11111111111111111111111111111111
-Line=00000000000000000000000000000000
-Line=01111110000000000111111000000000
+Color=0,0x7b6500
+Color=1,0xffca00
 Line=00000000000000000000000000000000
 Line=11111111111111111111111111111111
+Line=10000001111111111000000111111111
+Line=11111111111111111111111111111111
+Line=00000000000000000000000000000000
 [END]
 
 [Polyline]
@@ -4631,27 +4631,27 @@ Line=00000000000000000000000000000000
 
 [Polyline]
 Type=0x10104
-String=4,secondary highway
-String=3,Provinciale weg
 String=2,Landesstraﬂe
+String=3,Provinciale weg
+String=4,secondary highway
 TextSize=1
 Color=0,0xffca00
 Line=00000000000000000000000000000000
-Line=01111111100000000111111110000000
-Line=01111111100000000111111110000000
+Line=0........00000000........0000000
+Line=0........00000000........0000000
 Line=00000000000000000000000000000000
 [END]
 
 [Polyline]
 Type=0x10105
-String=4,tertiary road
-String=3,Regionale weg
 String=2,Kreisstraﬂe
+String=3,Regionale weg
+String=4,tertiary road
 TextSize=1
-Color=0,0xffff6a
-Line=00111111000000000011111100000000
-Line=00111111000000000011111100000000
-Line=00111111000000000011111100000000
+Color=0,0xffca00
+Line=00......0000000000......00000000
+Line=00......0000000000......00000000
+Line=00......0000000000......00000000
 [END]
 
 [Polyline]
